@@ -6,6 +6,14 @@ $(document).ready(function() {
         }
     });
 
+    $('.dropdown-trigger').dropdown();
+//     $('select').formSelect();
+// });
+    // console.log($(".dropdown-trigger"))
+    // $('.dropdown-trigger').dropdown();
+    // find user's location based off of ip address
+
+
     // global variables
     var callsign = '';
     var city = '';
@@ -74,9 +82,6 @@ $(document).ready(function() {
         });
     }
 });
-
-
-
 
 
 /*

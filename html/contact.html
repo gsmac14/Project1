@@ -6,7 +6,8 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Meera+Inimai&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="..//css/contact.css">
@@ -23,15 +24,14 @@
         <ul class="right">
           <li><a href="../html/home.html">home HOME</a></li>
           <li><a href="../html/contact.html">comment CONTACT</a></li>
-          <li><a href="#">sentiment_very_satisfied ABOUT US</a></li>
         </ul>
       </i>
     </div>
   </nav> 
 
-  <!-- User Input -->
+<!-- User Input -->
   <div class="container">
-
+<!-- Contact Card -->
     <div class="row">
       <div class="col s12 ">
         <div class="card-panel center" id="contact">
@@ -41,12 +41,10 @@
         </div>
       </div>
     </div> 
-
+<!-- User Contact Input -->
     <div class="row">
-      
         <div class="card-panel">
           <form>
-
             <div class="input-feild col 12 m6">
               <input type="text" name="first" id="first" placeholder="First Name">
             </div>
@@ -66,7 +64,10 @@
             <div class="input-feild m12">
               <textarea name="message" id="message" class="materialize-textarea" placeholder="Message"></textarea>
             </div>
-
+            <!-- Send Button -->
+            <button class="btn waves-effect waves-light #fafafa grey lighten-" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
           </form>
         </div>
       </div>

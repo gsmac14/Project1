@@ -10,6 +10,7 @@
 nav {
    position: fixed;
    background-color: rgba(85, 87, 88, 0.5);
+   font-family: 'Abel', sans-serif;
 }
 
 #image1 {
@@ -26,4 +27,8 @@ h1 {
 .card-panel {
     background-color: rgba(85, 87, 88, 0.5);
     margin-top: 200px;
+}
+
+.container {
+    font-family: 'Abel', sans-serif;
 }

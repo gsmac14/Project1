@@ -63,7 +63,8 @@ $(document).ready(function() {
 
         // add a link to that station
         var link = $("<a>");
-        link.attr("href", "#");
+        link.attr("href", stations[i].websiteurl);
+        link.attr("target", "_blank");
         link.attr("class", "station")
         link.attr("data-callsign", stations[i].callsign);
         link.html(stations[i].callsign);
@@ -73,6 +74,19 @@ $(document).ready(function() {
     // change callsign
     $(".station").on("click", function(event) {
         callsign = $(event.target).data('callsign');
+
+        // api.dar.fm/uberstationurl.php?callsign=[call_letters]&partner_token=[token]
+        var playerURL = 'http://api.dar.fm/uberstationurl.php?callback=json&callsign=' + callsign + '&partner_token=' + apiKey;
+        var playerURLEncoded = encodeURI(playerURL);
+
+        $.ajax({
+            url: playerURLEncoded,
+            method: "GET"
+        }).then(function(response) {
+            var radioURL = response.result[0].websiteurl;
+            // console.log(radioURL);
+        });
+
 
         /*
         // api.dar.fm/player_api.php?callsign=KBZT&onnow_display=true&station_display=true&volume_display=true&partner_token=1234567890

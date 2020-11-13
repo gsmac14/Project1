@@ -44,6 +44,7 @@ $(document).ready(function() {
             url: darURLEncoded,
             method: "GET"
         }).then(function(response) {
+            console.log(darURLEncoded);
             var results = response.result[0].stations;
 
             for (var i = 0; i < results.length; i++) {
@@ -60,7 +61,8 @@ $(document).ready(function() {
                     genre: results[i].genre,
                     callsign: results[i].callsign,
                     dial: results[i].dial,
-                    slogan: results[i].slogan
+                    slogan: results[i].slogan,
+                    websiteurl: results[i].websiteurl
                 }
 
                 stations.push(station);

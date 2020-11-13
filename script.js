@@ -6,95 +6,88 @@ $(document).ready(function() {
         }
     });
 
-    // find user's location based off of ip address
+    // global variables
+    var callsign = '';
     var city = '';
     var state = '';
-    var queryURL = "http://ip-api.com/json/";
+    var stations = [];
+    var genres = [];
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response) {
-        city = response.city;
-        state = response.region;
-        console.log(city, state);
+    // search button event handler
+    $("#search-button").on("click", function(event) {
+        event.preventDefault();
 
+        // TODO: make sure the input is valid
+        city = $("#city-input").val();
+        // state = ;
+
+        // if the input is valid, go to the results page and display the list of radio stations
         getStations();
+        
+        // TODO: otherwise, tell the user to search again
     });
-
+    
     // return a list of radio stations using dar fm api
     function getStations() {
         // dar fm
         var apiKey = '4363387309';
+
+        // for now, we are hard coding city & state
+        city = 'dallas';
+        state = 'tx';
         
-        // manually setting city / state for now
-        city = 'Austin';
-        state = 'TX';
-        var darURL = 'http://api.dar.fm/darstations.php?callback=json&city=' + city + '&state=' + state + '&exact=1&partner_token=' + apiKey;
-        
+        // var darURL = 'http://api.dar.fm/darstations.php?callback=json&city=' + city + '&state=' + state + '&exact=1&partner_token=' + apiKey;
+        var darURL = 'https://apidarfm.global.ssl.fastly.net/darstations.php?callback=json&city=' + city + '&state=' + state + '&exact=1&partner_token=' + apiKey;
+        var darURLEncoded = encodeURI(darURL);
+
         $.ajax({
-            url: darURL,
+            url: darURLEncoded,
             method: "GET"
         }).then(function(response) {
-            console.log(response.result[0].stations);
-        });
+            var results = response.result[0].stations;
 
+            for (var i = 0; i < results.length; i++) {
+                localStorage.removeItem("genres");
+                localStorage.removeItem("stations");
 
-        /*
-        $.ajax(darSettings).done(function(response) {
-            console.log(response);
+                // add to list of genres
+                if (!genres.includes(results[i].genre)) {
+                    genres.push(results[i].genre);
+                }
+
+                // station info
+                var station = {
+                    genre: results[i].genre,
+                    callsign: results[i].callsign,
+                    dial: results[i].dial,
+                    slogan: results[i].slogan
+                }
+
+                stations.push(station);
+            }
+            localStorage.setItem('genres', JSON.stringify(genres));
+            localStorage.setItem('stations', JSON.stringify(stations));
+
+            window.location.href = './results.html';
         });
-        */
     }
 });
-
-
-
-
-
 
 
 
 
 
 /*
-// find stations
-var radioURL = "https://30-000-radio-stations-and-music-charts.p.rapidapi.com/rapidapi?genre=ALL&search_keyword=Z100&country=ALL";
-const settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": radioURL,
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-key": "2ec5c41291msh6fe60bb34c67e16p1154d1jsn5deccd62e117",
-        "x-rapidapi-host": "30-000-radio-stations-and-music-charts.p.rapidapi.com"
-    }
-};
+// get user's location based off of ip address
+var queryURL = "http://ip-api.com/json/";
 
-$.ajax(settings).done(function (response) {
-    // console.log(response);
-});
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function(response) {
+    city = response.city;
+    state = response.region;
 
-// npr
-var nprCode = '';
-var nprSettings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://api.npr.org/authorization/v2/device",
-    "method": "POST",
-    "headers": {
-        "content-type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-        "client_id": "nprone_trial_hOUuSGVMR4IF",
-        "client_secret": "4vkUM7sG4irc8NSxMLMK7IaXmTYEhIHBRaBM6S00",
-        "scope": "localactivation"
-    }
-}
-
-$.ajax(nprSettings).done(function (response) {
-    // console.log(response);
-    nprCode = response.device_code;
-    console.log(nprCode);
+    getStations();
 });
 */

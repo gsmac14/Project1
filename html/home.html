@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/home.css">
     <title>Radio</title>
 </head>
+<!-- Page Content -->
 <body>
   <!-- Navbar -->
   <nav class="nav-wrapper">
@@ -29,42 +30,33 @@
 <!-- Background Image -->
 <section id="image1">
 
-<!-- Search Bar -->
 <div class="container">
-  <section id="row" class="section section-search white-text center">
-      <div class="search">
-        <div class="search-bar">
-          <h2>Search Radio Stations by City & State:</h2>
-          <div class="input-field">
+  <div class="row">
+    <div class="col s12 ">
+      <div class="card-panel center" id="card">
+    <!--  -->
+    <section id="title" class="section section-search white-text center">
+      <h1>Search Radio Stations by City & State:</h1>
 
-            <!-- Dropdown States -->
-             <!-- Dropdown Trigger -->
-  <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+  <!-- User Input -->
+  <div class="row">
 
-      <!-- Dropdown Structure -->
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider" tabindex="-1"></li>
-        <li><a href="#!">three</a></li>
-        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-      </ul>
-            
-            <!-- Search Button -->
-            <input type="text" class="grey lighten-5 autocomplete center" placeholder="City Name" id="search"></input>
-            
-            <!-- Submit Button -->
-            <button class="btn waves-effect waves-light #fafafa grey lighten-" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
-            </button>
-          </div>
-          </div>
-        </div>
-      </div>
+    <!-- Search Bar -->
+    <div class="col s12 m6">
+      <input id="city-input" type= "text" class="grey lighten-5 autocomplete center" placeholder="City Name" id="search"></input>
     </div>
-    </div>
+
+    <!-- Dropdown -->
+    
+    <!-- Submit Button -->
+    <button id="search-button" class="btn waves-effect waves-light #fafafa grey lighten-" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+    </button>
+
   </section>
+</div>
 </section>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="../script.js"></script>
 </body>
 </html>

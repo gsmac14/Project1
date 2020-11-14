@@ -6,21 +6,18 @@ $(document).ready(function() {
         }
     });
 
-    // $('.dropdown-trigger').dropdown();
-
-
     // global variables
     var callsign = '';
     var city = '';
     var state = '';
-    var stations = [];
     var genres = [];
+    var stations = [];
 
     // search button event handler
     $("#search-button").on("click", function(event) {
         event.preventDefault();
 
-        // TODO: make sure the input is valid
+        // make sure the input is valid
         city = $("#city-input").val().trim();
         state = $("#state option:selected").text();
 
@@ -39,17 +36,18 @@ $(document).ready(function() {
         // dar fm
         var apiKey = '4363387309';
 
-        // for now, we are hard coding city & state
-        var darURL = 'https://apidarfm.global.ssl.fastly.net/darstations.php?callback=json&city=' + city + '&state=' + state + '&exact=1&partner_token=' + apiKey;
+        // search stations based on city / state
+        var darURL = 'http://api.dar.fm/darstations.php?callback=json&city=' + city + '&state=' + state + '&exact=1&partner_token=' + apiKey;
         var darURLEncoded = encodeURI(darURL);
 
         $.ajax({
             url: darURLEncoded,
-            method: "GET"
+            method: "GET",
         }).then(function(response) {
             var results = response.result[0].stations;
 
             for (var i = 0; i < results.length; i++) {
+                // clear out localStorage so we can update it w new search
                 localStorage.removeItem("genres");
                 localStorage.removeItem("stations");
 
@@ -71,9 +69,12 @@ $(document).ready(function() {
 
                 stations.push(station);
             }
+
+            // set localStorage
             localStorage.setItem('genres', JSON.stringify(genres));
             localStorage.setItem('stations', JSON.stringify(stations));
 
+            // go to results page
             window.location.href = './results.html';
         });
     }

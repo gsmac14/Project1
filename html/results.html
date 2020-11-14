@@ -13,33 +13,56 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="../script.js"></script>
-    <script src="../results.js"></script>
+    <script src="../javascript/script.js"></script>
+    <script src="../javascript/results.js"></script>
     
     <title>Radio</title>
     <!--script type="text/javascript" src="http://api.dar.fm/js/inline.js"></script-->
     <link type="text/css" href="http://api.dar.fm/styles/inline.css" rel="stylesheet" />
 </head>
 <body>
-<!-- Background image starts -->
-<section id="image1">
+    <!-- Background image starts -->
+  <section id="image1">
 
   <!-- Navbar -->
   <nav class="nav-wrapper">
     <div class="container">
       <i class="material-icons">radio RADIO
         <ul class="right">
-          <li><a href="../html/home.html">home HOME</a></li>
+          <li><a href="/index.html">home HOME</a></li>
           <li><a href="../html/contact.html">comment CONTACT</a></li>
         </ul>
       </i>
     </div>
   </nav> 
 
-<!-- Card-1 Sports -->
+<!-- Radio Content -->
 <div class="container">
-  <audio id="player" src="" autoplay="true" controls="true" volume="1.0" style="display: none;"></audio>
+  <div class="row center">
+    <div class="col s12 m12">
+      <div class="card-info"></div>
+    </div>
+  </div>
 </div>
+
+<!-- Audio player & song info -->
+<div class= "container">
+  <div id="audio-player" class="audio">
+    <audio id="player" src="" autoplay="true" controls="true" volume="1.0" style="display: none;"></audio>
+    <div id="song-info"></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <div class="container">
+    <div class="row center">
+      © 2020 Ranger Team
+    </div>
+    </div>
+  </div>
+</footer>
+
 </section>
 </body>
 </html>

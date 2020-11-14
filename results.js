@@ -14,6 +14,7 @@ $(document).ready(function() {
     var storedStations = JSON.parse(localStorage.getItem("stations"));
     var dataGenre = $(".data-genre");
     var callsign = '';
+    var stationID = '';
 
     // get info from localStorage
     if (storedStations !== null) {
@@ -56,17 +57,16 @@ $(document).ready(function() {
     // fill in the links for each radio found for a genre
     for (var i = 0; i < stations.length; i++) {
         // locate the card to put it in
-        // $(event.target).data('city')
-        // .addClass('demo');
         var whichGenre = '[data-genre="' + stations[i].genre + '"]';
         var genreCard = $(whichGenre);
 
         // add a link to that station
         var link = $("<a>");
-        link.attr("href", stations[i].websiteurl);
-        link.attr("target", "_blank");
+        link.attr("href", "#"); // stations[i].websiteurl);
+        // link.attr("target", "_blank");
         link.attr("class", "station")
         link.attr("data-callsign", stations[i].callsign);
+        link.attr("data-stationid", stations[i].station_id);
         link.html(stations[i].callsign);
         genreCard.append(link);
     }
@@ -74,8 +74,8 @@ $(document).ready(function() {
     // change callsign
     $(".station").on("click", function(event) {
         callsign = $(event.target).data('callsign');
+        stationID = $(event.target).data('stationid');
 
-        // api.dar.fm/uberstationurl.php?callsign=[call_letters]&partner_token=[token]
         var playerURL = 'http://api.dar.fm/uberstationurl.php?callback=json&callsign=' + callsign + '&partner_token=' + apiKey;
         var playerURLEncoded = encodeURI(playerURL);
 
@@ -84,30 +84,22 @@ $(document).ready(function() {
             method: "GET"
         }).then(function(response) {
             var radioURL = response.result[0].websiteurl;
-            // console.log(radioURL);
+            var streamURL = response.result[0].url;
+
+            $("#player").attr("src", streamURL);
+            $("#player").attr("style", "display: block;");
+            getCurrentSong();
         });
+    });
 
-
-        /*
-        // api.dar.fm/player_api.php?callsign=KBZT&onnow_display=true&station_display=true&volume_display=true&partner_token=1234567890
-        var webPlayerURL = 'http://api.dar.fm/player_api.php?callsign=' + callsign + '&onnow_display=true&station_display=true&volume_display=true&partner_token=' + apiKey;
-        var webPlayerURLEncoded = encodeURI(webPlayerURL);
+    function getCurrentSong() {
+        var songURL = 'http://api.dar.fm/playlist.php?station_id=' + stationID + '&partner_token=' + apiKey;
 
         $.ajax({
-            url: webPlayerURLEncoded,
+            url: songURL,
             method: "GET"
         }).then(function(response) {
-            console.log(webPlayerURLEncoded);
+            console.log(response);
         });
-        */
-    });
+    }
 });
-
-/*
-darInit("bastille", $(".image-viewer"), "1234567890", styles = {
-    width: '250',
-    clear: 'left',
-    border: '1px solid #CCCCCC',
-    ‘background-color': 'transparent'
-});
-*/

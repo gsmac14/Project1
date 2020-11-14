@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../css/home.css">
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Meera+Inimai&display=swap" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
@@ -48,116 +50,63 @@
       <input id="city-input" type= "text" class="grey lighten-5 autocomplete center" placeholder="City Name" id="search"></input>
     </div>
 
-     <!-- Dropdown Trigger -->
-  <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
-
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">Alabama</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Alaska</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Arizona</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Arkansas</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">California</a></li>
-    <li class="divider"tabindex="-1"></li>
-    <li><a href="#!">Colorado</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Connecticut</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Delaware</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Florida</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Georgia</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Hawaii</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Idaho</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Illinois</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Indiana</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Iowa</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Kansas</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Kentucky</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Louisiana</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Maine</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Maryland</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Massachusetts</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Michigan</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Maryland</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Massachusetts</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Michigan</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Minnesota</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Mississippi</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Missouri</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Montana</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Nebraska</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Nevada</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">New Hampshire</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">New Jersey</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">New Mexico</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">New York</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">North Dakota</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Ohio</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Oklahoma</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Oregon</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Pennsylvania</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Rhode Island</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">South Carolina</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">South Dakota</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Tennessee</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Texas</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Utah</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Vermont</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Virginia</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Washington</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">West Virginia</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Wisconsin</a></li>
-    <li class="divider" tabindex="-1"></li>
-    <li><a href="#!">Wyoming</a></li>
-    <li class="divider" tabindex="-1"></li>
-  </ul>
+     <!-- Dropdown -->
+     <div class="col s12 m6">
+    
+      <select id="state" class="browser-default">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="alabama">AL</option>
+        <option value="alaska">AK</option>
+        <option value="arizona">AZ</option>
+        <option value="arkansas">AR</option>
+        <option value="california">CA</option>
+        <option value="colorado">CO</option>
+        <option value="connecticut">CT</option>
+        <option value="delaware">DE</option>
+        <option value="florida">FL</option>
+        <option value="georgia">GA</option>
+        <option value="hawaii">HI</option>
+        <option value="idaho">ID</option>
+        <option value="illinois">IL</option>
+        <option value="iowa">IA</option>
+        <option value="kansas">KS</option>
+        <option value="kentucky">KY</option>
+        <option value="louisiana">LA</option>
+        <option value="maine">ME</option>
+        <option value="maryland">MD</option>
+        <option value="massachusetts">MA</option>
+        <option value="michigan">MI</option>
+        <option value="minnesota">MN</option>
+        <option value="mississippi">MS</option>
+        <option value="missouri">MO</option>
+        <option value="montana">MT</option>
+        <option value="nebraska">NE</option>
+        <option value="nevada">NV</option>
+        <option value="new hampshire">NH</option>
+        <option value="new jersey">NJ</option>
+        <option value="new mexico">NM</option>
+        <option value="new york">NY</option>
+        <option value="north carolina">NC</option>
+        <option value="north dakota">ND</option>
+        <option value="ohio">OH</option>
+        <option value="oklahoma">OK</option>
+        <option value="oregan">OR</option>
+        <option value="pennsylvania">PA</option>
+        <option value="rhode island">RI</option>
+        <option value="south carolina">SC</option>
+        <option value="south dakota">SD</option>
+        <option value="tennessee">TN</option>
+        <option value="texas">TX</option>
+        <option value="utah">UT</option>
+        <option value="vermont">VT</option>
+        <option value="virginia">VA</option>
+        <option value="washington">WA</option>
+        <option value="west virginia">WV</option>
+        <option value="wisconsin">WI</option>
+        <option value="wyoming">WY</option>
+      </select>
+     </div>
+     
     <!-- Submit Button -->
     <button id="search-button" class="btn waves-effect waves-light #fafafa grey lighten-" type="submit" name="action">Submit
       <i class="material-icons right">send</i>
